@@ -1,12 +1,42 @@
-Automating Model Deployment with Docker
+Plant Disease Detection Using CNN & Streamlit Deployment
+Project Overview
+This project focuses on detecting plant diseases using deep learning. A Convolutional Neural Network (CNN) was trained on the PlantVillage dataset, which consists of images of diseased and healthy plant leaves. The trained model was then deployed using Streamlit, allowing users to upload images and receive real-time disease predictions.
 
-This project focuses on automating the deployment of the YOLOv5 COCO model using Docker. The key highlights include:
+Dataset
+The PlantVillage dataset contains images in three formats:
 
-Objective: Streamline the deployment process by containerizing the YOLOv5 model for consistent and scalable application across environments.
-Approach:
-The model was first deployed and tested using MLflow to ensure functionality.
-Subsequently, the focus shifted to Docker, where an Ubuntu-based Docker image was created to host and deploy the model.
-Required dependencies, including Python and YOLOv5, were installed and configured within the Docker container.
-Results: The deployment was successfully automated using Docker, providing an isolated, portable environment for the YOLOv5 COCO model.
-By the end of the project, the entire deployment process was containerized, enabling easy replication and scalability. The final solution was successfully uploaded and executed in a Docker environment.
+Color images
+Grayscale images
+Segmented images
+For this project, we used the color images dataset, which contains multiple plant species categorized into healthy and diseased classes.
 
+Project Workflow
+Data Preprocessing & Augmentation
+
+Extracted images from the dataset.
+Applied ImageDataGenerator to rescale pixel values and split data into training (80%) and validation (20%) sets.
+Model Architecture (CNN)
+
+A Sequential CNN model was built with:
+Two convolutional layers (Conv2D) with ReLU activation and max pooling.
+A fully connected (Dense) layer for classification.
+Softmax activation to output probabilities for different disease classes.
+Optimizer: Adam
+Loss Function: Categorical Crossentropy
+Training & Evaluation
+
+The model was trained for 5 epochs with a batch size of 32.
+Achieved high validation accuracy on the dataset.
+Visualization of Training Performance
+
+Plotted accuracy and loss curves for train and validation sets.
+Prediction System
+
+Implemented an image upload function for real-time predictions.
+Used argmax on model predictions to classify plant diseases.
+Mapped predicted indices to actual class labels.
+Deployment with Streamlit
+
+Created an interactive web application using Streamlit.
+Users can upload an image of a leaf, and the model predicts whether it is healthy or diseased.
+Deployed the model on Streamlit Cloud for accessibility.
